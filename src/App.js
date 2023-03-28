@@ -1,6 +1,6 @@
 import "./App.css";
 import SideBar from "./Components/SideBar";
-import Container from "./Components/Container";
+import Homepagedata from "./Components/homepage";
 import AfricanFood from "./Components/AfricanFood";
 import ChineseFood from "./Components/ChineseFood";
 import ItalianFood from "./Components/ItalianFood";
@@ -10,7 +10,10 @@ import Profile from "./Components/Profile";
 import ComingSoon from "./Components/ComingSoon";
 import Chat from "./Components/Chat";
 import Modal from "./Components/Modal";
+import PaymentSect from "./Components/PaymentSect";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RestaurentIndex from "./Components/RestaurentIndex";
+import RestaurantDetailPage from "./Components/restaurentDetailPage";
 
 function App() {
   return (
@@ -21,17 +24,13 @@ function App() {
           <SideBar />
           {/* <Container /> */}
           <Routes>
-            <Route path="/" element={<Container />} />
+            {/* <Route path="/" element={<Container />} /> */}
+            <Route path="/" element={<Homepagedata />} />
             <Route path="/african" element={<AfricanFood />} />
-            <Route path="/chinese" element={<ChineseFood />} />
-            <Route path="/italian" element={<ItalianFood />} />
-            <Route path="/desert" element={<DesertFood />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/comingsoon" element={<ComingSoon />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/modal" element={<Modal />} />
-            <Route path="/update/:id" element={<Modal />} />
+            <Route path="/PaymentSect" element={<PaymentSect />} /> 
+            <Route path="/restaurents" element={<RestaurentIndex/>}/>  
+            <Route path="/new-restaurents" element={<RestaurantDetailPage/>}/>
+            <Route path="/restaurentPage" element={<RestaurantDetailPage/>}/>  
           </Routes>
         </Router>
       </div>
