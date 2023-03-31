@@ -100,7 +100,7 @@ console.log(err,"api error")
   }
   return (
     <>
-      <div className="payment">
+      <div className="restaurent_list">
       <div style={{ width: '100%' }}>
 
 <Grid>

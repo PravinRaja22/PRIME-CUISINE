@@ -1,7 +1,8 @@
 /* foodcont styling */
 .foodcontainer {
   width: 100%;
-  height: calc(100% - 45px);
+  /* height: calc(100% - 45px); */
+  height:100%;
   display: flex;
   padding-top: 15px;
 }
@@ -17,6 +18,12 @@
   display: none;
 }
 
+.restaurent_list{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: inherit;
+}
 
 .foodcontainer .left-side .cards {
   background: #252837;
@@ -24,6 +31,7 @@
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   margin-top: 20px;
   border-radius: 10px;
+  width: 1800px;
 }
 
 .foodcontainer .left-side .cards .all {

@@ -65,7 +65,7 @@ console.log(err,"api error")
   }
   return (
     <>
-      <div className="payment">
+      <div className="restaurent_list">
       <div style={{ width: '100%' }}>
       <Box
         sx={{ display: 'flex', p: 1, bgcolor: '#FBF8BE', borderRadius: 1 }}
