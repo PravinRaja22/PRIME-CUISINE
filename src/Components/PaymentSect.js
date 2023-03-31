@@ -101,7 +101,7 @@ console.log(err,"api error")
               <TableCell align="left">{row.orderedFoodName}</TableCell>
               <TableCell align="left">{row.orderedQuantity}</TableCell>
               <TableCell align="center">{row.price}</TableCell>
-              <TableCell align="center">{row.price}</TableCell>
+              <TableCell align="center">{row.totalPrice}</TableCell>
               <TableCell align="center">{row.billDate}</TableCell>
              
             </TableRow>

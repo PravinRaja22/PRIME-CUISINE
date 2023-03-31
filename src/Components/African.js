@@ -84,9 +84,11 @@ function axioscall(){
 
 
                         {
-                            ResponseData.map(i=>(
-                                <FoodBox imgSrc={i.imageUrl} title={i.foodName} price={i.price} />
-                            ))
+                            ResponseData.length>0 &&
+                            
+                            <FoodBox prop={ResponseData}  />  
+                                // <FoodBox imgSrc={i.imageUrl} title={i.foodName} price={i.price} />
+                            
                         }
 
                     

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Box,Button,Modal} from '@mui/material'
+import {Box,Button,Modal,Grid, CardContent,Card} from '@mui/material'
 import ModelAddCart from "./ModelAddCart";
 
 const style = {
@@ -18,14 +18,21 @@ const style = {
 };
 
 
-function FoodBox({ imgSrc, title, price }) {
+function FoodBox(props) {
+  // function FoodBox({ imgSrc, title, price }) {
 
   // const handleClick = async () => {
   //   alert("Item has been added to cart");
   // };
+    const [records,setRecords]=useState([])
+
+  console.log(props.prop,"props")
 
   const [ModelOpen, setModelOpen] = useState(false)
 
+  useEffect(()=>{
+    setRecords(props.prop)
+  },[])
 
   const notify = () => {
 
@@ -37,9 +44,52 @@ function FoodBox({ imgSrc, title, price }) {
     setModelOpen(false)
   }
 
+
   return (
-    <div className="details">
-      <img src={imgSrc} alt="" className="details-img" />
+   <div className="details">
+    
+    <div class="grid-container">
+
+      {
+        records.map((i,index)=>(
+          <>
+<dic class="grid-item">
+  <img src={i.imageUrl} alt="" className="details-img" width="100px" height="100px" />
+      <div className="food-name">
+        <h2>{i.foodName}</h2>
+      </div>
+
+      <div className="food-details">
+        <div>
+          <p>
+            Price: {i.price}
+          </p>
+          <p>Available</p>
+        </div>
+      </div>
+
+      <div className="cart-btn">
+
+        <button onClick={notify} className="btn">Add to cart</button>
+      </div>
+      <Modal
+        open={ModelOpen}
+        onClose={closeModel}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+         <ModelAddCart title={ i.foodName} price={i.price} closeModel={closeModel}/>
+        </Box>
+        </Modal>
+
+        </dic>    
+          
+            </>
+        ))
+      }
+      
+      {/* <img src={imgSrc} alt="" className="details-img" />
       <div className="food-name">
         <h2>{title}</h2>
       </div>
@@ -54,12 +104,9 @@ function FoodBox({ imgSrc, title, price }) {
       </div>
 
       <div className="cart-btn">
-        {/* <button onClick={handleClick} className="btn">
-          Add to cart
-        </button> */}
+
         <button onClick={notify} className="btn">Add to cart</button>
       </div>
-      {/* <ToastContainer /> */}
       <Modal
         open={ModelOpen}
         onClose={closeModel}
@@ -69,9 +116,9 @@ function FoodBox({ imgSrc, title, price }) {
         <Box sx={style}>
          <ModelAddCart title={ title} price={price} closeModel={closeModel}/>
         </Box>
-      </Modal>
-
-    </div>
+      </Modal> */}
+ </div>
+     </div>
   );
 }
 

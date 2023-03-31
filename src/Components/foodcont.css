@@ -7,6 +7,21 @@
   padding-top: 15px;
 }
 
+.grid-container {
+  display: grid;
+  column-gap: 50px;
+  grid-template-columns: auto auto auto;
+
+  padding: 10px;
+}
+
+.grid-item {
+
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
 .foodcontainer .left-side {
   width: calc(100% - 30%);
   overflow-y: scroll;
@@ -71,16 +86,20 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  width: '100px';
 }
 
 .foodcontainer .left-side .cards main .details {
   background: #1F1D2B;
   border-radius: 10px;
   /* max-width: 260px; */
-  max-width: 220px;
+  max-width: 1000px;
   padding-bottom: 20px;
   margin: 20px 10px;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 10px;
 }
 
 .foodcontainer .left-side .cards main .details .details-img {
@@ -107,6 +126,7 @@
   padding: 5px 10px;
   text-align: left;
   margin: 10px;
+  
 }
 .foodcontainer .left-side .cards main .details .food-details p {
   font-size: 12px;
