@@ -9,22 +9,23 @@ import {
 import { useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const addCartSave = `http://localhost:5000/upsertcartData`
 
 
-const ModalAddtoCart = ({ title,price, closeModel }) => {
+const ModalAddtoCart = ({data, closeModel}) => {
 
+  const location = useLocation();
   const [parentRecord, setParentRecord] = useState();
 
 
   const [studentRecord, setStudentRecord] = useState([])
 
   useEffect(() => {
-
-
+      // setParentRecord(location.state.record.item)
+      console.log('Data is :',data)
   }, [])
 
   toast.success('Item has been added to cart', {
@@ -39,8 +40,8 @@ const ModalAddtoCart = ({ title,price, closeModel }) => {
   });
 
   const initialValues = {
-    orderedFoodName: title ?? "",
-    price: price ?? "",
+    orderedFoodName: data?.foodName?? "",
+    price: data?.price??"",
     orderedQuantity: '',
     totalPrice: '',
     billDate: '',
@@ -119,11 +120,11 @@ const ModalAddtoCart = ({ title,price, closeModel }) => {
                       <Grid container spacing={2}>
                         <Grid item xs={6} md={6}>
                           <FormLabel htmlFor="orderedFoodName"> Food Name  </FormLabel>
-                          <Field name="orderedFoodName" type="text" class="form-input" />
+                          <Field name="orderedFoodName" type="text"  class="form-input" />
                         </Grid>
                         <Grid item xs={6} md={6}>
                           <FormLabel htmlFor="price">Product price </FormLabel>
-                          <Field name="price" type="text" class="form-input" />
+                          <Field name="price" type="text"  class="form-input" />
                         </Grid>
                         <Grid item xs={6} md={6}>
                           <FormLabel htmlFor="orderedQuantity">Order Quantity </FormLabel>
@@ -137,7 +138,7 @@ const ModalAddtoCart = ({ title,price, closeModel }) => {
                         </Grid>
                       </Grid>
                       <div className='action-buttons'>
-                        <DialogActions sx={{ justifyContent: "space-between" }}>
+                        <DialogActions sx={{ justifyContent: "center" }}>
                           <Button type='success' variant="contained" color="secondary" disabled={isSubmitting}>Confirm</Button>
 
                           <Button type="reset" variant="contained" onClick={handleFormClose}  >Cancel</Button>

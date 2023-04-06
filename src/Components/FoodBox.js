@@ -26,6 +26,8 @@ function FoodBox(props) {
   // };
     const [records,setRecords]=useState([])
 
+    const[selectedRecord,setSelectedRecords]=useState()
+
   console.log(props.prop,"props")
 
   const [ModelOpen, setModelOpen] = useState(false)
@@ -34,9 +36,11 @@ function FoodBox(props) {
     setRecords(props.prop)
   },[])
 
-  const notify = () => {
+  const notify = (i) => {
 
     setModelOpen(true)
+    console.log('i is :',i)
+    setSelectedRecords(i)
 
   }
 
@@ -70,7 +74,7 @@ function FoodBox(props) {
 
       <div className="cart-btn">
 
-        <button onClick={notify} className="btn">Add to cart</button>
+        <button onClick={(e)=>notify(i)} className="btn">Add to cart</button>
       </div>
       <Modal
         open={ModelOpen}
@@ -79,7 +83,7 @@ function FoodBox(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-         <ModelAddCart title={ i.foodName} price={i.price} closeModel={closeModel}/>
+         <ModelAddCart data={selectedRecord} closeModel={closeModel}/>
         </Box>
         </Modal>
 
